@@ -32,7 +32,7 @@ function setInitialPositionAndScale() {
   // position the terms at a random start position
   for (const term of terms) {
     // resize term font size for easier scaling
-    term.classList.add('unusableFontSize');
+    term.classList.add('biggerFontSizeForEasierScaling');
     term.style.transform =
       'scale(' +
       generateRandomNumber(minScale, maxScale) +
@@ -52,7 +52,7 @@ function setInitialPositionAndScale() {
 function resetInitialPositionAndScale() {
   // reset term positions
   for (const term of terms) {
-    term.classList.remove('unusableFontSize');
+    term.classList.remove('biggerFontSizeForEasierScaling');
     term.style.transform = 'scale(1) ' + 'translateX(0) ' + 'translateY(0)';
   }
   // reset header to position relative

@@ -27,7 +27,7 @@ main {
 
 .term {
   color: inherit;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 10px;
   max-width: fit-content;
   margin: 0;
@@ -49,12 +49,13 @@ main {
   display: none;
 }
 
-.unusableFontSize {
+.biggerFontSizeForEasierScaling {
   font-size: 80px;
 }
 
+/* @media screen and (max-width: 900px) { */
 @media screen and (max-width: 800px) {
-  .unusableFontSize {
+  .biggerFontSizeForEasierScaling {
     font-size: 60px;
   }
 }
