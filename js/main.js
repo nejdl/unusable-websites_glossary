@@ -1,6 +1,7 @@
 // get terms
 const terms = document.getElementsByClassName('term');
 const letters = document.getElementsByTagName('h3');
+const header = document.getElementsByTagName('header')[0];
 
 function generateRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
@@ -24,18 +25,20 @@ function generateRandomHeight(term) {
   return randomHeight;
 }
 
-// const minScale = 0.5;
-// const maxScale = 2.5;
-const minScale = 0.5;
+// const minScale = 0.8;
+// const maxScale = 2.5
+const minScale = 0.1;
 const maxScale = 1;
-const minAnimationTime = 10000;
-const maxAnimationTime = 200000;
+const minAnimationTime = 5000;
+const maxAnimationTime = 100000;
 const minTranslate = 0;
 const maxTranslate = 100;
 
 // SET INITIAL RANDOM POSITION / SCALE
 function setInitialPositionAndScale() {
+  // position the terms at a random start position
   for (const term of terms) {
+    term.classList.add('unusableFontSize');
     term.style.transform =
       'scale(' +
       generateRandomNumber(minScale, maxScale) +
@@ -47,13 +50,19 @@ function setInitialPositionAndScale() {
       generateRandomHeight(term) +
       'px)';
   }
+  // position title / toggle on top
+  header.classList.add('positionOnTop');
 }
 
 // RESET TO LIST POSITION / SCALE
-function setInitialPositionAndScale() {
+function resetInitialPositionAndScale() {
+  // reset term positions
   for (const term of terms) {
+    term.classList.remove('unusableFontSize');
     term.style.transform = 'scale(1) ' + 'translateX(0) ' + 'translateY(0)';
   }
+  // reset header to position relative
+  header.classList.add('positionOnTop');
 }
 
 // START ANIMATING / FLOATING THE TERMS AROUND
@@ -170,9 +179,13 @@ const toggle = document.getElementById('toggle');
 toggle.addEventListener('click', function (e) {
   const toggleValue = e.target.checked;
   if (toggleValue) {
+    resetInitialPositionAndScale();
+    stopFloating();
+  } else {
     setInitialPositionAndScale();
     startFloating();
-  } else {
-    stopFloating();
   }
 });
+
+setInitialPositionAndScale();
+startFloating();
