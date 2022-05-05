@@ -1,43 +1,37 @@
-// get terms
-const terms = document.getElementsByClassName('term');
-const letters = document.getElementsByTagName('h3');
+// GET ELEMENTS FROM HTML
+// get header / toggle / glossary letters / terms
 const header = document.getElementsByTagName('header')[0];
+const toggle = document.getElementById('toggle');
+const letters = document.getElementsByTagName('h3');
+const terms = document.getElementsByClassName('term');
 
-function generateRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-function generateRandomWidth(term) {
-  const windowWidth = window.innerWidth;
-  const termWidth = term.offsetWidth;
-  const randomWidth = Math.floor(
-    generateRandomNumber(0, windowWidth - termWidth)
-  );
-  return randomWidth;
-}
-
-function generateRandomHeight(term) {
-  const windowHeight = window.innerHeight;
-  const termHeight = term.offsetHeight;
-  const randomHeight = Math.floor(
-    generateRandomNumber(0, windowHeight - termHeight)
-  );
-  return randomHeight;
-}
-
-// const minScale = 0.8;
-// const maxScale = 2.5
+// SETTINGS
+// font size scaling min / max
 const minScale = 0.1;
-const maxScale = 1;
-const minAnimationTime = 5000;
+const maxScale = 1; // if > 1, overflow appears
+// animation time  min / max, determining the animation speed
+const minAnimationTime = 7500;
 const maxAnimationTime = 100000;
-const minTranslate = 0;
-const maxTranslate = 100;
 
-// SET INITIAL RANDOM POSITION / SCALE
+// FUNCTION: START / STOP FLOATING
+function startOrStopFloating() {
+  const isChecked = toggle.checked;
+  // if toggle is set on'unusable' aka not checked
+  if (!isChecked) {
+    setInitialPositionAndScale();
+    startFloating();
+    // else if toggle is set on'usable' aka checked
+  } else {
+    resetInitialPositionAndScale();
+    stopFloating();
+  }
+}
+
+// FUNCTION: SET INITIAL RANDOM POSITION / SCALE OF TERM
 function setInitialPositionAndScale() {
   // position the terms at a random start position
   for (const term of terms) {
+    // resize term font size for easier scaling
     term.classList.add('unusableFontSize');
     term.style.transform =
       'scale(' +
@@ -54,7 +48,7 @@ function setInitialPositionAndScale() {
   header.classList.add('positionOnTop');
 }
 
-// RESET TO LIST POSITION / SCALE
+// FUNCTION: RESET TERMS TO POSITION / SCALE IN LIST
 function resetInitialPositionAndScale() {
   // reset term positions
   for (const term of terms) {
@@ -67,14 +61,15 @@ function resetInitialPositionAndScale() {
 
 // START ANIMATING / FLOATING THE TERMS AROUND
 function startFloating() {
+  // hide glossary letters
   for (const letter of letters) {
     letter.classList.add('hidden');
   }
-
   for (const term of terms) {
+    // set position to absolute, so floating transformation is possible
     term.classList.add('floating');
-    const termWidth = term.offsetWidth;
-
+    // floating animation
+    // between five positions with randomly generated X / Y coordinates
     const floatingAnimation = [
       {
         transform:
@@ -149,43 +144,64 @@ function startFloating() {
           'px)',
       },
     ];
-
+    // animation options
     const animationOptions = {
       duration: generateRandomNumber(minAnimationTime, maxAnimationTime),
       iterations: Infinity,
       direction: 'alternate',
     };
-
+    // start animation with defined random animation and options
     term.animate(floatingAnimation, animationOptions);
   }
 }
 
+// FUNCTION: GENERATE A RANDOM WIDTH < WINDOW WIDTH
+function generateRandomWidth(term) {
+  const windowWidth = window.innerWidth;
+  const termWidth = term.offsetWidth;
+  const randomWidth = Math.floor(
+    generateRandomNumber(0, windowWidth - termWidth)
+  );
+  return randomWidth;
+}
+
+// FUNCTION: GENERATE A RANDOM HEIGHT < WINDOW HEIGHT
+function generateRandomHeight(term) {
+  const windowHeight = window.innerHeight;
+  const termHeight = term.offsetHeight;
+  const randomHeight = Math.floor(
+    generateRandomNumber(0, windowHeight - termHeight)
+  );
+  return randomHeight;
+}
+
+// FUNCTION: GENERATE A RANDOM NUMBER IN BETWEEN MIN / MAX
+function generateRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// FUNCTION: STOP FLOATING
 function stopFloating() {
+  // show glossary letters again
   for (const letter of letters) {
     letter.classList.remove('hidden');
   }
 
+  // reset position to relative again
   for (const term of terms) {
     term.classList.remove('floating');
+    // stop all animations
     term
       .getAnimations({ subtree: true })
       .map((animation) => animation.cancel());
   }
 }
 
-// toggle
-const toggle = document.getElementById('toggle');
+// INITIAL: START FLOATING ON LOAD
+startOrStopFloating();
 
-toggle.addEventListener('click', function (e) {
-  const toggleValue = e.target.checked;
-  if (toggleValue) {
-    resetInitialPositionAndScale();
-    stopFloating();
-  } else {
-    setInitialPositionAndScale();
-    startFloating();
-  }
-});
+// ON TOGGLE CHANGE: START / STOP FLOATING
+toggle.addEventListener('click', startOrStopFloating);
 
-setInitialPositionAndScale();
-startFloating();
+// ON RESIZE: RECALCULATE POSITION
+window.addEventListener('resize', startOrStopFloating);
