@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: pink;
 }
 
 header,
@@ -22,7 +23,6 @@ header {
 }
 
 main {
-  /* background-color: orange; */
 }
 
 .term {
@@ -33,6 +33,16 @@ main {
   margin: 0;
   /* background-color: white; */
   transition: transform 0.5 ease;
+  border-radius: 10px;
+}
+
+a:nth-of-type(even) {
+  font-family: sans-serif;
+  color: rgb(103, 38, 255);
+}
+a:nth-of-type(odd) {
+  font-family: serif;
+  color: rgb(113, 255, 121);
 }
 
 .term:hover {
@@ -58,4 +68,9 @@ main {
   .biggerFontSizeForEasierScaling {
     font-size: 60px;
   }
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
 }
