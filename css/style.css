@@ -2,27 +2,31 @@ html,
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: pink;
 }
 
-header,
 main {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-header {
-  background-color: rgba(1, 1, 1, 0.1);
+body.usable {
+  background-color: var(--blue);
+  color: white;
 }
 
-.positionOnTop {
-  position: sticky;
-  z-index: 1;
-  top: 0;
+/* FONTS */
+.sans {
+  font-family: sans-serif;
 }
 
-main {
+.serif {
+  font-family: serif;
+}
+
+.mono {
+  font-family: monospace;
+  font-size: var(--fontSizeS);
 }
 
 .term {
@@ -34,15 +38,6 @@ main {
   /* background-color: white; */
   transition: transform 0.5 ease;
   border-radius: 10px;
-}
-
-a:nth-of-type(even) {
-  font-family: sans-serif;
-  color: rgb(103, 38, 255);
-}
-a:nth-of-type(odd) {
-  font-family: serif;
-  color: rgb(113, 255, 121);
 }
 
 .term:hover {

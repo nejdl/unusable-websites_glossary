@@ -1,0 +1,40 @@
+header {
+  font-size: 50px;
+}
+
+/* SURTITLE */
+#surtitle {
+  display: flex;
+  padding: var(--gapS);
+}
+
+#surtitle div {
+  flex: 1 0 50%;
+}
+
+/* TITLE */
+.title {
+  font-size: var(--fontSizeTitle);
+  padding: 0 var(--gapXS);
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.title .serif {
+  font-size: var(--fontSizeTitleSerif);
+  margin-top: calc((var(--toggleGap) / 1.5) * -1);
+}
+
+#title--line1 {
+  display: flex;
+}
+
+#title--line2 {
+}
+
+/* position title / toggle on top in unusable mode */
+.positionOnTop {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}

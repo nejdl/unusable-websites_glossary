@@ -18,12 +18,23 @@ function startOrStopFloating() {
   const isChecked = toggle.checked;
   // if toggle is set on'unusable' aka not checked
   if (!isChecked) {
+    toggleStyle('remove');
     setInitialPositionAndScale();
     startFloating();
     // else if toggle is set on'usable' aka checked
   } else {
+    toggleStyle('add');
     resetInitialPositionAndScale();
     stopFloating();
+  }
+}
+
+// TOGGLE STYLE FROM UNUSABLE TO USUBALE
+function toggleStyle(toggle) {
+  if (toggle === 'add') {
+    document.body.classList.add('usable');
+  } else {
+    document.body.classList.remove('usable');
   }
 }
 
