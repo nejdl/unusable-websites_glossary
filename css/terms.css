@@ -51,5 +51,6 @@
 
 /* VISITED */
 .term:visited {
-  /* color: var(--purple); */
+  color: var(--purple);
+  color: var(--grey);
 }
