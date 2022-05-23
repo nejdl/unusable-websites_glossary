@@ -4,20 +4,44 @@
   --gapS: 5px;
   --gapM: 10px;
   --gapL: 20px;
+  --gapTop: 10px;
+  --gapSides: 15px;
 
   /* TOGGLE */
-  --toggleHeight: 19.13vw;
   --toggleWidth: 19.13vw;
   --toggleGap: 0.76vw;
-  --toggleMargin: calc(var(--toggleGap) * 1.3);
+  --toggleMargin: calc(var(--toggleGap) * 0.9);
 
   /* COLORS */
-  --blue: blue;
+  --blue: rgb(44, 44, 251);
   --white: white;
+  --black: black;
+  --purple: purple;
 
   /* FONT SIZES */
   --fontSizeS: 16px;
   --fontSizeL: 50px;
-  --fontSizeTitle: 14.2vw;
-  --fontSizeTitleSerif: 15.1vw;
+  --fontSizeText: 16px;
+  --fontSizeTitle: 14.1vw;
+  --fontSizeTitleSerif: 15vw;
+}
+
+/* mobile */
+@media screen and (max-width: 900px) {
+  :root {
+    --gapTop: 5px;
+    --gapSides: 10px;
+  }
+}
+
+/* large desktops */
+@media screen and (min-width: 1000px) {
+  :root {
+    --toggleWidth: 191.3px;
+    --toggleGap: 7.6px;
+    --toggleMargin: calc(var(--toggleGap) * 0.9);
+
+    --fontSizeTitle: 141px;
+    --fontSizeTitleSerif: 150px;
+  }
 }

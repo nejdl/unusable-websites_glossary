@@ -178,7 +178,8 @@ function generateRandomWidth(term) {
 
 // FUNCTION: GENERATE A RANDOM HEIGHT < WINDOW HEIGHT
 function generateRandomHeight(term) {
-  const windowHeight = window.innerHeight;
+  const heightOfHeader = header.offsetHeight;
+  const windowHeight = window.innerHeight - heightOfHeader;
   const termHeight = term.offsetHeight;
   const randomHeight = Math.floor(
     generateRandomNumber(0, windowHeight - termHeight)

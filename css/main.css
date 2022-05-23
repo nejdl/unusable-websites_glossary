@@ -1,0 +1,60 @@
+main,
+header {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main {
+  display: flex;
+  padding: var(--gapM) var(--gapSides) var(--gapSides) var(--gapSides);
+  position: relative;
+}
+
+main .column {
+  flex: 0 1 50%;
+}
+
+/* TEXT STYLE / POSITION */
+#column--right {
+  font-size: var(--fontSizeText);
+}
+
+#column--right p {
+  padding-bottom: var(--gapM);
+}
+
+#column--right summary {
+  padding-bottom: var(--gapM);
+}
+
+#text {
+  z-index: 0;
+}
+
+summary {
+  cursor: pointer;
+}
+
+.usable #text.sticky {
+  position: sticky;
+  top: calc(28.8vw + var(--gapM));
+}
+
+@media screen and (min-width: 1000px) {
+  .usable #text.sticky {
+    position: sticky;
+    top: calc(281px + var(--gapM));
+  }
+}
+
+@media screen and (max-width: 650px) {
+  main {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  main .column {
+    flex: 1 1 auto;
+  }
+}

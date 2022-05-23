@@ -1,15 +1,30 @@
 header {
   font-size: 50px;
+  background-color: var(--white);
+}
+
+.usable header {
+  background-color: var(--blue);
 }
 
 /* SURTITLE */
 #surtitle {
   display: flex;
-  padding: var(--gapS);
+  padding: var(--gapTop) var(--gapSides) var(--gapTop) var(--gapSides);
 }
 
 #surtitle div {
   flex: 1 0 50%;
+}
+
+@media screen and (max-width: 500px) {
+  #surtitle {
+    justify-content: space-between;
+  }
+
+  #surtitle div {
+    flex: 0 0 auto;
+  }
 }
 
 /* TITLE */
@@ -17,7 +32,12 @@ header {
   font-size: var(--fontSizeTitle);
   padding: 0 var(--gapXS);
   text-transform: uppercase;
-  line-height: 0.9;
+  line-height: 0.85;
+  box-shadow: 0 0 5px 12px var(--white);
+}
+
+.usable .title {
+  box-shadow: 0 0 5px 12px var(--blue);
 }
 
 .title .serif {
@@ -30,6 +50,7 @@ header {
 }
 
 #title--line2 {
+  margin-left: var(--toggleGap);
 }
 
 /* position title / toggle on top in unusable mode */

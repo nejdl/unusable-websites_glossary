@@ -1,0 +1,40 @@
+/* TERMS */
+.term {
+  color: var(--blue);
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  padding: var(--gapM) 0;
+  /* border: 1px solid black; */
+  line-height: 1;
+  /* transition: transform 0.5 ease; */
+}
+
+.term h2 {
+  padding-top: var(--gapS);
+  font-size: var(--fontSizeL);
+}
+
+.usable .term {
+  color: var(--white);
+}
+
+/* RESEARCH */
+.research {
+  color: var(--black);
+}
+
+.usable .research {
+  color: var(--black);
+}
+
+/* HOVER */
+.term:hover {
+  text-decoration: underline;
+  /* color: grey; */
+}
+
+/* VISITED */
+.term:visited {
+  /* color: var(--purple); */
+}
