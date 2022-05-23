@@ -76,3 +76,14 @@ summary {
     flex: 1 1 auto;
   }
 }
+
+/* links in participants list */
+#text a {
+  color: inherit;
+}
+#text a:hover {
+  color: var(--blue);
+}
+.usable #text a:hover {
+  color: var(--black);
+}
