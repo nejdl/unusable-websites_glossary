@@ -52,12 +52,12 @@ body.usable {
 }
 
 .biggerFontSizeForEasierScaling {
-  font-size: 80px;
+  font-size: var(--fontSizeLScaled);
 }
 
 /* @media screen and (max-width: 900px) { */
 @media screen and (max-width: 800px) {
   .biggerFontSizeForEasierScaling {
-    font-size: 60px;
+    font-size: var(--fontSizeLScaledMobile);
   }
 }

@@ -30,6 +30,17 @@ main .column {
 
 #text {
   z-index: 0;
+  display: block;
+}
+
+/* hide text on mobile when unusable selected */
+@media screen and (max-width: 650px) {
+  #text {
+    display: none;
+  }
+  .usable #text {
+    display: block;
+  }
 }
 
 summary {

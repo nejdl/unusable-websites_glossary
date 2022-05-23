@@ -20,7 +20,11 @@
 
   /* FONT SIZES */
   --fontSizeS: 16px;
+  --fontSizeSScaled: 22px;
+  --fontSizeSScaledMobile: 18px;
   --fontSizeL: 50px;
+  --fontSizeLScaled: 80px;
+  --fontSizeLScaledMobile: 50px;
   --fontSizeText: 16px;
   --fontSizeTitle: 14.1vw;
   --fontSizeTitleSerif: 15vw;

@@ -12,11 +12,26 @@
 
 .term h2 {
   padding-top: var(--gapS);
-  font-size: var(--fontSizeL);
 }
 
 .usable .term {
+  font-size: var(--fontSizeL);
   color: var(--white);
+}
+
+.term .mono {
+  font-size: var(--fontSizeSScaled);
+}
+
+/* mobile */
+@media screen and (max-width: 800px) {
+  .term .mono {
+    font-size: var(--fontSizeSScaledMobile);
+  }
+}
+
+.usable .term .mono {
+  font-size: var(--fontSizeS);
 }
 
 /* RESEARCH */
