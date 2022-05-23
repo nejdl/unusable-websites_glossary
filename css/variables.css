@@ -13,7 +13,7 @@
   --toggleMargin: calc(var(--toggleGap) * 0.9);
 
   /* COLORS */
-  --blue: rgb(44, 44, 251);
+  --blue: rgb(62, 62, 255);
   --white: white;
   --black: black;
   --purple: purple;
@@ -35,13 +35,13 @@
 }
 
 /* large desktops */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
   :root {
-    --toggleWidth: 191.3px;
-    --toggleGap: 7.6px;
+    --toggleWidth: 211px;
+    --toggleGap: 8px;
     --toggleMargin: calc(var(--toggleGap) * 0.9);
 
-    --fontSizeTitle: 141px;
-    --fontSizeTitleSerif: 150px;
+    --fontSizeTitle: 155px;
+    --fontSizeTitleSerif: 165px;
   }
 }
