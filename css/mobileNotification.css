@@ -1,0 +1,32 @@
+#mobile-notification {
+  margin: var(--gapS) 0;
+  padding: var(--gapS) var(--gapM);
+  color: var(--white);
+  background-color: var(--blue);
+  border-radius: var(--borderRadius);
+  display: none;
+  width: calc(100% - 2 * var(--gapM));
+  position: fixed;
+  bottom: var(--gapS);
+}
+
+#mobile-notification.hidden {
+  display: none;
+}
+
+.usable #mobile-notification.hidden {
+  display: block;
+}
+
+.usable #mobile-notification {
+  pointer-events: none;
+  color: var(--blue);
+  background-color: var(--white);
+  position: relative;
+}
+
+@media screen and (max-width: 650px) {
+  #mobile-notification {
+    display: block;
+  }
+}

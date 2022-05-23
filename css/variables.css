@@ -18,6 +18,9 @@
   --black: black;
   --purple: purple;
 
+  /* BORDER-RADIUS */
+  --borderRadius: 10px;
+
   /* FONT SIZES */
   --fontSizeS: 16px;
   --fontSizeSScaled: 22px;
