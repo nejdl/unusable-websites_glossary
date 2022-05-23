@@ -10,7 +10,11 @@ function checkIfTextShouldntBeSticky() {
     if (textShouldntBeSticky) {
       // scroll text to top for easier reading
       // if sticky is about to get removed
-      if (text.classList.contains('sticky')) {
+      // only for desktop
+      if (
+        text.classList.contains('sticky') &&
+        document.body.clientWidth > 650
+      ) {
         scrollToTop();
       }
       text.classList.remove('sticky');

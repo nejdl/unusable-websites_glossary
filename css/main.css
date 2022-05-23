@@ -11,6 +11,13 @@ main {
   position: relative;
 }
 
+/* add more padding on top on mobile */
+@media screen and (max-width: 650px) {
+  main {
+    padding-top: var(--gapL);
+  }
+}
+
 main .column {
   flex: 0 1 50%;
 }
