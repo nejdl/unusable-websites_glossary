@@ -37,6 +37,7 @@
 /* RESEARCH */
 .research {
   color: var(--black);
+  display: none;
 }
 
 .usable .research {
