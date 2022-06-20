@@ -222,7 +222,6 @@ window.addEventListener('resize', startOrStopFloating);
 // FIX FALSE CHECKBUTTON CHECKED ON BACK-BUTTON / SAFARI
 window.onpageshow = function (event) {
   if (event.persisted) {
-    console.log('hi');
     window.location.reload();
   }
 };
