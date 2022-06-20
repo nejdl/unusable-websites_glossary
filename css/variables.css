@@ -18,6 +18,7 @@
   --black: black;
   --purple: purple;
   --grey: grey;
+  --darkgrey: rgb(58, 58, 58);
 
   /* BORDER-RADIUS */
   --borderRadius: 10px;

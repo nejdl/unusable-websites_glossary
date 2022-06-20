@@ -16,6 +16,7 @@ const maxAnimationTime = 100000;
 // FUNCTION: START / STOP FLOATING
 function startOrStopFloating() {
   const isChecked = toggle.checked;
+
   // if toggle is set on'unusable' aka not checked
   if (!isChecked) {
     toggleStyle('remove');
@@ -217,3 +218,11 @@ toggle.addEventListener('click', startOrStopFloating);
 
 // ON RESIZE: RECALCULATE POSITION
 window.addEventListener('resize', startOrStopFloating);
+
+// FIX FALSE CHECKBUTTON CHECKED ON BACK-BUTTON / SAFARI
+window.onpageshow = function (event) {
+  if (event.persisted) {
+    console.log('hi');
+    window.location.reload();
+  }
+};

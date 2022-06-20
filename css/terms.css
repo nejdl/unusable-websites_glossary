@@ -37,7 +37,7 @@
 /* RESEARCH */
 .research {
   color: var(--black);
-  display: none;
+  /* display: none; */
 }
 
 .usable .research {
@@ -51,7 +51,10 @@
 }
 
 /* VISITED */
-.term:visited {
-  color: var(--purple);
+/* .term:visited {
   color: var(--grey);
 }
+.term.research:visited {
+  color: var(--darkgrey);
+  color: var(--grey);
+} */
